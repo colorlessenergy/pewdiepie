@@ -55,6 +55,35 @@ body {
 }
 
 section, header {
-  border: 1px solid #000;
   height: 100vh;
+}
+
+.information {
+  align-items: center;
+  display: flex;
+}
+
+.information__container {
+  display: flex;
+  justify-content: center;
+}
+
+.information--backwards {
+  flex-direction: row-reverse;
+}
+
+.information__img-backdrop {
+  width: 400px;
+  height: 400px;
+  background-color: #ff9791;
+  border-radius: 50%;
+  margin-right: 80px;
+}
+
+.information__img-backdrop--ml {
+  margin: 0 0 0 80px;
+}
+
+.information__group {
+  width: 30%;
 }
