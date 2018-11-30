@@ -1,30 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
+  transition: transform 0.5s ease;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.move1 {
+  transform: translate3d(0, -100vh, 0);
+}
+
+.move2 {
+  transform: translate3d(0, -200vh, 0);
+}
+
+.move3 {
+  transform: translate3d(0, -300vh, 0);
+}
+
+.movePlayer1 {
+  transform: translate3d(0, 100vh, 0);
+}
+
+.movePlayer2 {
+  transform: translate3d(0, 200vh, 0);
+}
+
+.movePlayer3 {
+  transform: translate3d(0, 300vh, 0);
+}
+
+section {
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #f29590;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  height: 10vh;
+  list-style-type: none;
   margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin-right: 20px;
+}
+
+.nav li a {
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav li a.nav__cta {
+  background-color: #000;
+  color: #fff;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 0 10px;
+}
+
+/* the first list item stuck in the top left */
+.nav li:first-child {
+  height: 100%;
+}
+
+
+.nav li a:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+
+.play {
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 30px;
+  width: 30px;
+  margin: 0 30px 0 0;
+  transition: transform 0.4s ease;
 }
 
 .header {
   align-items: flex-end;
   background-color: #ff9791;
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  height: 90vh;
 }
 
 .header__group {
   margin-bottom: 50px;
 
+
   /* align the description to the right without it being justified to the right */
   display: flex;
   flex-direction: column;
+
+  position: relative;
+  z-index: 2;
 }
 
 .header__title {
   color: #fff;
   font-size: 200px;
   margin: 0;
-  position: relative;
-  z-index: 2;
 }
 
 .header__description {
@@ -38,7 +135,6 @@ body {
 .header__img {
   animation: backgroundzoom 2s forwards ease-in;
   position: absolute;
-  transform: translate3d(20px, 30px, 0);
 }
 
 
@@ -52,10 +148,6 @@ body {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-section, header {
-  height: 100vh;
 }
 
 .information {
@@ -73,6 +165,9 @@ section, header {
 }
 
 .information__img-backdrop {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   width: 400px;
   height: 400px;
   background-color: #ff9791;
@@ -80,10 +175,114 @@ section, header {
   margin-right: 80px;
 }
 
+.information__img {
+  width: 100%;
+  transform: translate3d(-222px, 0, 0);
+  transition: transform 1s ease;
+}
+
 .information__img-backdrop--ml {
+  background-size: 118%;
+  background-image: url('images/pewdiepie-rage.png');
+  background-position: 26% 92%;
+  background-repeat: no-repeat;
   margin: 0 0 0 80px;
 }
 
 .information__group {
   width: 30%;
+}
+
+.information__title {
+  font-size: 35px;
+  margin-top: 0;
+}
+
+.information__description {
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.collage {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.collage img {
+  width: 100px;
+  height: 100px;
+}
+
+@media only screen and (max-width: 1057px) {
+  body {
+    overflow: auto;
+  }
+
+  /* these function don't exist on mobile */
+  .instructions, .play {
+    display: none;
+  }
+
+  .header__img {
+    animation: none;
+    transform: initial;
+  }
+
+  .header__group {
+    color: #fff;
+  }
+
+  .information__img {
+    transform: initial;
+  }
+
+  .header__title {
+    font-size: 50px;
+  }
+
+  .information {
+    height: unset;
+    margin: 30px 0;
+  }
+
+  .information__container {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .information img {
+    width: 200px;
+  }
+
+  .information__img-backdrop {
+    height: 300px;
+    width: 300px;
+    margin: 10px 0;
+  }
+
+  .information__group {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 411px) {
+  .header {
+    height: 50vh;
+    margin-top: -1px;
+  }
+
+  .header__img {
+    width: 80%;
+  }
+
+  .information__group {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 1360px) {
+  .header__img {
+    width: 800px;
+  }
 }
